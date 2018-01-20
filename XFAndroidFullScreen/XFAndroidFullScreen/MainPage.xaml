@@ -3,6 +3,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:XFAndroidFullScreen"
+             xmlns:controls="clr-namespace:XFAndroidFullScreen.Controls;assembly=XFAndroidFullScreen"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance local:MainPage}"
              x:Class="XFAndroidFullScreen.MainPage">
     <Grid>
         <Grid.RowDefinitions>
@@ -12,8 +17,18 @@
         <ActivityIndicator Grid.Row="0"
                            IsRunning="{Binding IsLoading}"
                            IsVisible="{Binding IsLoading}"/>
-        <WebView Grid.Row="1"
-                 Source="https://www.youtube.com"
-                 Navigated="OnWebViewNavigated" />
+        <!--
+        If you want custom behavior for enter/exit full-screen, you can bind your custom commands, e.g.
+            <controls:FullScreenEnabledWebView Grid.Row="1"
+                                               Source="https://www.youtube.com"
+                                               Navigated="OnWebViewNavigated"
+                                               EnterFullScreenCommand="{Binding MyEnterFullScreenCommand}"
+                                               ExitFullScreenCommand="{Binding MyExitFullScreenCommand}" />
+        
+        For this sample, however, the default behavior suffices.
+        -->
+        <controls:FullScreenEnabledWebView Grid.Row="1"
+                                           Source="https://www.youtube.com"
+                                           Navigated="OnWebViewNavigated" />
     </Grid>
 </ContentPage>

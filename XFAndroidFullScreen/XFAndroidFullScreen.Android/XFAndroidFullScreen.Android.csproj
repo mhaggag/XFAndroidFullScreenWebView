@@ -56,6 +56,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Renderers\EnterFullScreenRequestedEventArgs.cs" />
+    <Compile Include="Renderers\FullScreenEnabledWebChromeClient.cs" />
+    <Compile Include="Renderers\FullScreenEnabledWebViewRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
